@@ -1,32 +1,23 @@
-### ALERT: Development on Rider-bot has been halted. Instead, I'll be working the [G4M3R discord bot](https://github.com/pedall/G4M3R) for the time being. However, I will continue to provide hosting for the bot.
+# Rider-Bot-Heroku
+## Conversion of Rider-Bot to be deployable on a heroku instance
 
-<hr>
-
-# Rider-Bot
-## A simple 'looking for group' / party-finder discord bot written in Java 8 with JDA
-
-### Features
-+ Create 'looking for group' entries quickly
-+ All entries viewable in dedicated channel, ordered by age
-+ Entries track members via mentions and allow option size limits
-+ Groups are automatically removed after they expire (configurable)
-+ Minutes since last update displayed on the entry
-+ Users are automatically asigned a role
-
-### Roadmap
-+ Automate the bot's setup
-+ Allow the expiration time to be configured per server
-+ Implement a ban command to ban players from joining a group
-+ Use SQL as a backend for storing group entries
-+ Open private voice / text channels for groups
+### Deployment
+Review heroku's [Java application deployment guide](https://devcenter.heroku.com/articles/getting-started-with-java#introduction)
++ Login to heroku cli ``heroku login``
++ Clone this repo ``git clone https://github.com/notem/Rider-Bot-Heroku.git; cd Rider-Bot-Heroku``
++ Create the heroku instance ``heroku create; git push heroku master``
++ Set environment config variables
+    + ``heroku config:set BOT_TOKEN="[your bot token]"``
+    + ``heroku config:set WEB_TOKEN="none"``
+    + ``heroku config:set ADMIN_ID="[your discord ID]"``
+    + ``heroku config:set PREFIX=":"``
+    + ``heroku config:set ADMIN_PREFIX="."``
+    + ``heroku config:set CHANNEL="lfg"``
+    + ``heroku config:set EXPIRE="1h"``
+    + Alternatively, the above can be setup through the heroku web interface
++ Start the application ``heroku ps:scale run=1``
 
 ### Dependencies
 
 + [JDA](https://github.com/DV8FromTheWorld/JDA) - 3.0.BETA2 Build:108
 + [Unirest](https://github.com/Mashape/unirest-java) - 1.4.9
-
-### Suggestions/Complaints
-
-[A common discord server is setup for all my bots.](https://discord.gg/ZQZnXsC) If you need help, have suggestions, or wish to rant about something concerning my bot hit me up there.
-
-If you're looking for user documentation, the bots invite link, or a list of commands follow the link to my website or use the 'help' and 'setup' commands in discord server containing the bot.
