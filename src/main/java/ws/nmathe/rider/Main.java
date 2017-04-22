@@ -25,13 +25,7 @@ public class Main
     public static void main( String[] args )
     {
         // get or generate bot settings
-        botSettings = BotSettings.init();
-        if( botSettings == null )
-        {
-            __out.printOut(Main.class, "Created a new java properties file. Add your " +
-                    "bot token to the file and restart the bot.\n");
-            return;
-        }
+        botSettings = new BotSettings();
 
         // build the bot
         try
