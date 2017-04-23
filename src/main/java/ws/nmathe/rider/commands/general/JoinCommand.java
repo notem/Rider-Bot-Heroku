@@ -16,22 +16,22 @@ import java.util.List;
  */
 public class JoinCommand implements Command
 {
-    private static final String USAGE_BRIEF = "**;join <arg>** - joins a group if the player" +
-            " limit hasn't been reached.";
-    private static final String USAGE_EXTENDED = "<arg> may be the group leader's name, a different user in the group," +
-            " or the group name";
-    private static final String EXAMPLES = "Ex1. **;join @noteless**" +
-            "\nEx2. **;join expert trials roulette**";
-
     private String chanName = Main.getBotSettings().getChannel();
 
     @Override
     public String help(boolean brief)
     {
+        final String invoke = Main.getBotSettings().getCommandPrefix() + "join";
+        final String USAGE_BRIEF = "``" + invoke + " <arg>`` - join a group";
+        final String USAGE_EXTENDED = "<arg> may be the group leader's name, a different user in the group," +
+                " or the group name.";
+        final String EXAMPLES = "Ex1. ``" + invoke + " @notem#1654``" +
+                "\nEx2. **``" + invoke + " expert trials roulette**";
+
         if( brief )
             return USAGE_BRIEF;
         else
-            return USAGE_BRIEF + "\n\n" + USAGE_EXTENDED;
+            return USAGE_BRIEF + "\n\n" + USAGE_EXTENDED + "\n\n" + EXAMPLES;
     }
 
     @Override

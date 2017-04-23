@@ -15,15 +15,16 @@ import java.util.List;
 public class LookingForCommand implements Command
 {
     private static final String invoke = Main.getBotSettings().getCommandPrefix() + "lf";
-    private static final String USAGE_BRIEF = "**"+invoke+"g <arg>** - creates a LFG entry with no player limit.\n" +
-            "**"+invoke+"[x]m <arg>** - creates a LFG entry with player limit equals to whatever [x] is";
+    private static final String USAGE_BRIEF = "``"+invoke+"g <arg>`` - create a group with no player limit.\n" +
+            "``"+invoke+"[x]m <arg>`` - create a group with player limit [x]";
+
     private static final String USAGE_EXTENDED = "<arg> should be some description of what you are forming" +
             "a group for. If another group already exists with the same name, a 'x' is appended to your LFG group" +
             "name. Any '<', '>', and '@' characters will be removed.\n\n If your guild has a 'lfg' role and has this bot has the" +
             " Role Management permission, 'lfg' will be added to your role. The role will later be removed when the " +
             "entry is closed or expires.\n\n" +
-            "Ex1. **"+invoke+"g expert trials roulette**\n" +
-            "Ex2. **"+invoke+"4m expert trials roulette**";
+            "Ex1. ``"+invoke+"g expert trials roulette``\n" +
+            "Ex2. ``"+invoke+"4m expert trials roulette``";
 
     private String chanName = Main.getBotSettings().getChannel();
 

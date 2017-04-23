@@ -10,8 +10,8 @@ import ws.nmathe.rider.core.group.GroupTable;
 public class KickCommand implements Command
 {
     private static final String invoke = Main.getBotSettings().getCommandPrefix() + "kick";
-    private static final String USAGE_BRIEF = "**"+invoke+" <arg>** - remove the user from your LFG group";
-    private static final String USAGE_EXTENDED = "Ex. **"+invoke+" @noteless**";
+    private static final String USAGE_BRIEF = "``"+invoke+" <arg>`` - remove a user from your group";
+    private static final String USAGE_EXTENDED = "Ex. **"+invoke+" @notem#1654**";
 
     @Override
     public String help(boolean brief)

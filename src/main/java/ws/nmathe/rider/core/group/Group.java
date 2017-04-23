@@ -29,15 +29,7 @@ class Group
         this.amount = amount;
         this.groupName = groupName;
         this.time = time;
-
-        try
-        {
-            this.message = chan.sendMessage( this.toMessageString() ).block();
-        }
-        catch (Exception e)
-        {
-            __out.printOut(this.getClass(),e.getMessage());
-        }
+        this.message = MessageUtilities.sendMsg(this.toMessageString(), chan);
     }
 
     boolean isExpired()

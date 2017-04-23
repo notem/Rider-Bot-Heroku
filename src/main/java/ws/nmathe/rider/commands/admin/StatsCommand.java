@@ -29,8 +29,8 @@ public class StatsCommand implements Command
     public void action(String[] args, MessageReceivedEvent event)
     {
         String msg = "```python\n";
-        msg += "Guilds    : " + Main.getBotJda().getGuilds().size() + "\n";
-        msg += "Table size: " + Main.getGroupManager().getTotalSize() + "\n";
+        msg += "Guilds : " + Main.getBotJda().getGuilds().size() + "\n";
+        msg += "Groups : " + Main.getGroupManager().getTotalSize() + "\n";
         Runtime rt = Runtime.getRuntime();
         msg += "Memory-total: " +rt.totalMemory()/1024/1024 + " MB\n" +
                 "      -free : " + rt.freeMemory()/1024/1024 + " MB\n" +

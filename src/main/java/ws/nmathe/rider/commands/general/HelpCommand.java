@@ -20,13 +20,18 @@ public class HelpCommand implements Command
     private static String prefix = Main.getBotSettings().getCommandPrefix();
 
     private final String INTRO = "I am **" + Main.getBotSelfUser().getName() + "**, a bot providing group/party finder " +
-            "like functionality to your discord server.\n\n";
+            "like functionality to your discord server.\n\n" +
+            "github: <https://github.com/notem/Rider-Bot-Heroku>\n" +
+            "userdocs: <https://nmathe.ws/bots/rider>\n" +
+            "support: <https://discord.gg/ZQZnXsC>\n" +
+            "invite: <https://discordapp.com/api/oauth2/authorize?client_id=" + Main.getBotJda().getSelfUser().getId() +
+            "&scope=bot&permissions=268446720>\n\n";
 
-    private static final String USAGE_EXTENDED = "For additional information and examples concerning these" +
-            " commands, use **" + prefix + "help <command>**." +
-            " Ex. **" + prefix + "help join**";
+    private static final String USAGE_EXTENDED = "For additional information and examples concerning bot" +
+            " commands, use ``" + prefix + "help <command>``." +
+            " Ex. ``" + prefix + "help join``";
 
-    private static final String USAGE_BRIEF = "**" + prefix + "help** - Messages the user help messages.";
+    private static final String USAGE_BRIEF = "``" + prefix + "help`` - Messages the user help messages.";
 
     @Override
     public String help(boolean brief)
@@ -40,9 +45,7 @@ public class HelpCommand implements Command
     @Override
     public boolean verify(String[] args, MessageReceivedEvent event)
     {
-        if(args.length>1)
-            return false;
-        return true;
+        return args.length <= 1;
     }
 
     @Override
@@ -56,8 +59,8 @@ public class HelpCommand implements Command
             String commandsBrief = ""; for( Command cmd : commands )
                 commandsBrief += cmd.help( true ) + "\n";
 
-            MessageUtilities.sendPrivateMsg( INTRO + "__**Available commands**__\n" +
-                    commandsBrief + USAGE_EXTENDED, event.getAuthor(), null );
+            MessageUtilities.sendPrivateMsg( INTRO + "**Available commands**\n====================\n" +
+                    commandsBrief + "\n\n" + USAGE_EXTENDED, event.getAuthor(), null );
         }
         // otherwise get the command using the first arg
         else

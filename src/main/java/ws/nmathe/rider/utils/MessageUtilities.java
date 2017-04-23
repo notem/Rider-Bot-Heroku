@@ -33,6 +33,31 @@ public class MessageUtilities
         }
     }
 
+    public static void sendMsg( Message msg, MessageChannel chan, Consumer<Message> action )
+    {
+        try
+        {
+            chan.sendMessage(msg).queue( action );
+        }
+        catch( Exception e )
+        {
+            __out.printOut(MessageUtilities.class, e.getMessage());
+        }
+    }
+
+    public static Message sendMsg( String msg, MessageChannel chan )
+    {
+        try
+        {
+            return chan.sendMessage(msg).complete();
+        }
+        catch( Exception e )
+        {
+            __out.printOut(MessageUtilities.class, e.getMessage());
+            return null;
+        }
+    }
+
     /**
      * sends a message to a private message channel, opening the channel before use
      *
@@ -44,7 +69,7 @@ public class MessageUtilities
     {
         try
         {
-            user.openPrivateChannel().block();
+            user.openPrivateChannel().complete();
             sendMsg( content, user.getPrivateChannel(), action );
         }
         catch( Exception e)
@@ -72,6 +97,18 @@ public class MessageUtilities
         }
     }
 
+    public static void editMsg(Message newMsg, Message msg, Consumer<Message> action )
+    {
+        try
+        {
+            msg.editMessage(newMsg).queue( action );
+        }
+        catch( Exception e)
+        {
+            __out.printOut(MessageUtilities.class, e.getMessage());
+        }
+    }
+
     /**
      * attempts to remove a message
      *
@@ -82,7 +119,7 @@ public class MessageUtilities
     {
         try
         {
-            msg.deleteMessage().queue( action );
+            msg.delete().queue( action );
         }
         catch( Exception e)
         {

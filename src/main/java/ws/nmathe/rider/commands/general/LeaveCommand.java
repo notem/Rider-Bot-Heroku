@@ -10,8 +10,8 @@ import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 public class LeaveCommand implements Command
 {
     private static final String invoke = Main.getBotSettings().getCommandPrefix() + "leave";
-    private static final String USAGE_BRIEF = "**"+invoke+"** - leaves the LFG group that you are in, if you are in one.";
-    private static final String USAGE_EXTENDED = "Ex. **"+invoke+"**";
+    private static final String USAGE_BRIEF = "``"+invoke+"`` - leaves your group";
+    private static final String USAGE_EXTENDED = "Ex. ``"+invoke+"``";
 
     @Override
     public String help(boolean brief)

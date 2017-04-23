@@ -70,7 +70,6 @@ public class EventListener extends ListenerAdapter
     public void onGuildJoin(GuildJoinEvent event)
     {
         Guild guild = event.getGuild();
-
         Main.getGroupManager().addGuild( guild.getId() );
 
         if( VerifyUtilities.verifyPermissions(guild) )

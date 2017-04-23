@@ -14,6 +14,7 @@ Review heroku's [Java application deployment guide](https://devcenter.heroku.com
     + ``heroku config:set ADMIN_PREFIX="."``
     + ``heroku config:set CHANNEL="lfg"``
     + ``heroku config:set EXPIRE="1h"``
+    + ``heroku config:set COOLDOWN="1000"``
     + Alternatively, the above can be setup through the heroku web interface
 + Start the application ``heroku ps:scale run=1``
 

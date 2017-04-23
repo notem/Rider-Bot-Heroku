@@ -46,7 +46,14 @@ public class Main
                 @Override
                 public String getName()
                 {
-                    return "LFG Bot | " + botSettings.getCommandPrefix() + "help";
+                    if(System.getenv().get("PLAYING") == null )
+                    {
+                        return "LFG Bot | " + botSettings.getCommandPrefix() + "help";
+                    }
+                    else
+                    {
+                        return System.getenv().get("PLAYING");
+                    }
                 }
 
                 @Override
